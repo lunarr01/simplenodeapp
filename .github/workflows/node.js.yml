@@ -20,7 +20,7 @@ jobs:
         if: success()
         run: echo "The previous step has finished successfully"
       - name: my third step
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.3.2
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
