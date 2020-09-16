@@ -1,17 +1,17 @@
 name: test
 
 on:
-pull_request:
-branches: 
-  - master
+  pull_request:
+    branches: 
+    - master
 
 jobs:
-build:
-runs-on: ${{ matrix.os }}
+  build:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-18.04]
         node: [12]
+        os: [macos-latest, windows-latest, ubuntu-18.04]
         include:
           - node: 13
             os: ubuntu-18.04
@@ -19,6 +19,7 @@ runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node }}
-uses: actions/setup-node@v1
-with:
-node-version: \${{ matrix.node }} - run: npm install - run: npm test
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+    - run: npm test
