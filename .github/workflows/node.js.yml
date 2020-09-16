@@ -8,9 +8,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node: [12]
-        exclude:
-          - os: macos-latest
-            node: 10
     steps:
       - name: my first step
         env:
